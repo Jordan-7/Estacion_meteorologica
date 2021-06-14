@@ -55,6 +55,7 @@ n5 <- ggplot(Datos_clima, aes(x = temp , group = 5))+geom_histogram (col = "red"
 
 n6 <- ggplot(Datos_clima, aes(x = evapo , group = 6))+geom_histogram (col = "gray")
 
+
 ## Parte 2
 
 dat.dat <-Datos_clima %>% select (lluvia, humedad, viento, radiación, temp, evapo)%>% 
@@ -74,4 +75,26 @@ m3<- ggplot(Datos_clima, aes(x = fecha, y=temp ,group = 1))+geom_line (col = "re
 m4<- ggplot(Datos_clima, aes(x = fecha, y=viento ,group = 1))+geom_line (col = "pink")
 
 m5<- ggplot(Datos_clima, aes(x = fecha, y=radiacion ,group = 1))+geom_line (col = "yellow")
+
 m6<- ggplot(Datos_clima, aes(x = fecha, y=humedad ,group = 1))+geom_line (col = "green")
+
+grid.arrange("m1", "m2", "m3", "m4", "m5", "m6")
+
+
+## Parte 3
+
+### Para hacerlo con puntos geometricos
+
+A1 <- ggplot(Datos_clima, aes(x = fecha, y=lluvia , group = 1))+geom_point (col = "blue")
+
+A2 <- ggplot(Datos_clima, aes(x = fecha, y=evapo , group = 2))+geom_point (col = "gray")
+
+A3 <- ggplot(Datos_clima, aes(x = fecha, y=temp , group = 3))+geom_point (col = "red")
+
+A4 <- ggplot(Datos_clima, aes(x = fecha, y=viento , group = 4))+geom_point (col = "pink")
+
+A5 <- ggplot(Datos_clima, aes(x = fecha, y=radiacion , group = 5))+geom_point (col = "yellow")
+
+A6 <- ggplot(Datos_clima, aes(x = fecha, y=humedad , group = 6))+geom_point (col = "green")
+
+grid.arrange("A1", "A2", "A3", "A4", "A5", "A6"
