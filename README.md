@@ -55,5 +55,23 @@ n5 <- ggplot(Datos_clima, aes(x = temp , group = 5))+geom_histogram (col = "red"
 
 n6 <- ggplot(Datos_clima, aes(x = evapo , group = 6))+geom_histogram (col = "gray")
 
-### Parte 2
+## Parte 2
 
+dat.dat <-Datos_clima %>% select (lluvia, humedad, viento, radiación, temp, evapo)%>% 
+
+mutate(fecha = as.Date(fecha, format = "%d/%m/%Y"))%>%
+
+summarise(lluvia = sum(lluvia), evapo = sum(evaporacion), temp= mean(t_celcius), viento = mean(vel_viento), radiacion = mean(irradiacion), humedad = mean(humedad))
+
+### Para crear con geometria de linea
+
+m1<- ggplot(Datos_clima, aes(x = fecha, y=lluvia ,group = 1))+geom_line (col = "blue")
+
+m2<- ggplot(Datos_clima, aes(x = fecha, y=evapo ,group = 2))+geom_line (col = "gray")
+
+m3<- ggplot(Datos_clima, aes(x = fecha, y=temp ,group = 1))+geom_line (col = "red")
+
+m4<- ggplot(Datos_clima, aes(x = fecha, y=viento ,group = 1))+geom_line (col = "pink")
+
+m5<- ggplot(Datos_clima, aes(x = fecha, y=radiacion ,group = 1))+geom_line (col = "yellow")
+m6<- ggplot(Datos_clima, aes(x = fecha, y=humedad ,group = 1))+geom_line (col = "green")
